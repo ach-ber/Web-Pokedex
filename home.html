@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./assets/home.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   
+
+
+  </head>
+  <body>
+
+    <header><img src="./assets/pokemonHeader.png"></header>
+    <main id="app">
+      <nav>
+        <form  @submit.prevent="onSubmit">
+          <input  v-model="searchPokemon" placeholder="Search Pokemon">
+          <input  v-model="searchPokemonByID" placeholder="Search ID"> 
+          <input class="button" type="submit" value=""> 
+          
+        </form>
+        <div v-on:click="udpdateSearch"></div>
+      </nav>
+      <section>
+        <article class="nonSelect" v-for="pokemon in ListePokemon" v-on:click="updateInfo(updateID(pokemon))" :class="{ pokemonSelect: isReady && updateID(pokemon)==idInfoPokemon, nonSearchPokemon: isSearch && pokemon.name != searchRes }">
+          <p>#{{ updateID(pokemon) }}</p>
+          <img  v-bind:src="udpdateImg(updateID(pokemon))">
+          <h3>{{ pokemon.name }}</h3>
+          
+          <p v-if="isReady && updateID(pokemon)==idInfoPokemon" >Height: {{ infoPokemon.height }}</p>
+          <p v-if="isReady && updateID(pokemon)==idInfoPokemon" >weight: {{ infoPokemon.weight }}</p>
+        </article>
+            
+      </section>
+    </main>
+    <footer><img src="./assets/logo_Polytech.svg"></footer>
+    
+    <script src="./main.js"></script>
+    <script>
+      const mountedApp = app.mount('#app');
+    </script>
+
+  </body>
+</html>

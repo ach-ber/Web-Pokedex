@@ -1,0 +1,264 @@
+/* ------------------------------------------ Reset ------------------------------------------ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ------------------------------------------ Style ------------------------------------------ */
+
+@supports (font-variation-settings: "wght" 300) {
+    * {
+      font-family: 'Roboto';
+      font-weight: 450;
+    }
+  }
+
+/* ------------------------ header ------------------------ */
+
+header {
+    color: black;
+    height: 99px;
+    width: 100%;
+    background-color:white;
+    display:flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    font-size: 20px;
+    border-bottom: 1px solid #dadce0;
+    align-items: center;
+}
+
+header img {
+    height: 80%;
+}
+
+/* ------------------------ main ------------------------ */
+
+main {
+    display:flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+/* -------------- nav -------------- */
+
+nav {
+    font-family: 'Roboto';
+    font-weight: 100;
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid #dadce0;
+    align-items: center;
+    justify-content: start;
+}
+
+nav input {
+    border-radius: 100px 0px 0px 100px;
+    border: 1px solid #dadce0;
+    height: 60px;
+    width: 240px;
+    margin-left: 100px;
+    font-weight: 400;
+    color: black;
+    font-size: 20px;
+    padding-left: 20px;
+    transition: background-color 200ms;
+}  
+
+nav input:nth-child(2) {
+    margin-left: 0px;
+    border-radius: 0px;
+    border-left: 0px;
+}
+
+nav input:nth-child(3) {
+    border-radius: 0px;
+    background-color: white;
+    border-left: 0px;
+    width:63px;
+    height: 63px;
+    margin-left: 0px;
+    background-image: url("loupe.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+nav input:focus  {
+    outline: 0px;
+    color: #1a73e8;
+}
+
+nav div {
+    border: 1px solid #dadce0;
+    border-radius: 0px 100px 100px 0px;
+    border-left: 0px;
+    width:62px;
+    height: 62px;
+    background-image: url("refresh.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color 200ms;
+}
+
+nav div:hover, nav input:hover{
+    background-color:  #F0F0F0;
+    cursor: pointer;
+    
+}
+
+
+
+/* -------------- section -------------- */
+
+section {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 40px 0px 40px 0px;
+    justify-content: center;
+    width: 100%;
+}
+
+article {
+    width: 298px;
+    height: 378px;
+    margin: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-family: 'Roboto';
+    transition: background-color 200ms;
+}
+
+article p:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0px 10px 0px;
+    color: #969696 ;
+}
+
+article img {
+    background-color: white;
+    width: 60%;
+    height: 180px;
+    padding: 8%;
+    transition: background-color 200ms;
+}
+
+article h3 {
+    height: 10%;
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+
+article:hover {
+    cursor: pointer;
+    background-color: #F0F0F0;
+
+} 
+
+article:hover img{
+    background-color: #F0F0F0;
+
+} 
+
+.nonSearchPokemon {
+    display: none;
+}
+
+.nonSelect {
+    background-color: white;
+}
+
+.pokemonSelect {
+    background-color: #F0F0F0;
+}
+
+.pokemonSelect p{
+    margin-top: 10px;
+}
+
+.pokemonSelect img{
+    display:none;
+    
+}
+
+/* ------------------------ footer ------------------------ */
+
+footer {
+    color: black;
+    height: 79px;
+    width: 100%;
+    background-color:white;
+    display:flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    font-size: 20px;
+    border-top: 1px solid #F0F0F0;
+    margin-top: 40px;
+    align-items: center;
+
+}
+
+footer img {
+    height: 80%;
+}
+
+/* ------------------------------------------ media queries ------------------------------------------ */
+
+@media (max-width: 900px) {
+    nav input {
+      margin-left: 0px;
+      width: 180px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+  }
